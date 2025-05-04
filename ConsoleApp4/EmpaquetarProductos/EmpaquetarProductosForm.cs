@@ -15,6 +15,30 @@ namespace ConsoleApp4.EmpaquetarProductos
         public EmpaquetarProductosForm()
         {
             InitializeComponent();
+            ordenEmpaquetadaBTN.Click += ordenEmpaquetadaBTN_Click;
+            cancelarBTN.Click += cancelarBTN_Click;
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ordenEmpaquetadaBTN_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("La orden fue marcada como empacada.");
+            this.Close();
+        }
+
+        private void cancelarBTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

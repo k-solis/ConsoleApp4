@@ -1,5 +1,19 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, Wooorld!");
+﻿using ConsoleApp4.EmpaquetarProductos;
 
+namespace ConsoleApp4
+{
+    internal static class Program
+    {
+        /// <summary>
+        ///  The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
+            Application.Run(new EmpaquetarProductosForm());
 
-
+        }
+    }
+}
