@@ -9,9 +9,16 @@ namespace ConsoleApp4.EmpaquetarProductos
     internal class Producto
     {
         // Atributos
-        public string SKUProducto { get; set; }
+        public int SKUProducto { get; set; }
         public string NombreProducto { get; set; }
         public int CantidadProducto { get; set; }
+
+        // Constructor correcto
+        public Producto(int skuProducto, string nombreProducto, int cantidadProducto)
+        {
+            SKUProducto = skuProducto;
+            NombreProducto = nombreProducto;
+            CantidadProducto = cantidadProducto;
+        }
     }
 }
-

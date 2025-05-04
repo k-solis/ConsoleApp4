@@ -31,7 +31,7 @@ namespace ConsoleApp4.EmpaquetarProductos
 
         private void ordenEmpaquetadaBTN_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("La orden fue marcada como empacada.");
+            MessageBox.Show("La orden fue marcada como empaquetada.");
             this.Close();
         }
 

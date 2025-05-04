@@ -59,6 +59,8 @@
             // listView2
             // 
             listView2.Columns.AddRange(new ColumnHeader[] { skuProductoCLM, nombreProductoCLM, cantidadProductoCLM });
+            listView2.Enabled = false;
+            listView2.HideSelection = true;
             listView2.Location = new Point(12, 76);
             listView2.Name = "listView2";
             listView2.Size = new Size(777, 314);
