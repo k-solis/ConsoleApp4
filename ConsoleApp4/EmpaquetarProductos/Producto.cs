@@ -13,7 +13,7 @@ namespace ConsoleApp4.EmpaquetarProductos
         public string NombreProducto { get; set; }
         public int CantidadProducto { get; set; }
 
-        // Constructor correcto
+        // Constructor
         public Producto(int skuProducto, string nombreProducto, int cantidadProducto)
         {
             SKUProducto = skuProducto;

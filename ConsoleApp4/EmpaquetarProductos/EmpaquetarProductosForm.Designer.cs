@@ -30,12 +30,12 @@
         {
             ordenEmpaquetadaBTN = new Button();
             cancelarBTN = new Button();
-            listView2 = new ListView();
+            listViewProductos = new ListView();
             skuProductoCLM = new ColumnHeader();
             nombreProductoCLM = new ColumnHeader();
             cantidadProductoCLM = new ColumnHeader();
             label2 = new Label();
-            label1 = new Label();
+            labelNumeroOrden = new Label();
             SuspendLayout();
             // 
             // ordenEmpaquetadaBTN
@@ -56,17 +56,18 @@
             cancelarBTN.Text = "Cancelar";
             cancelarBTN.UseVisualStyleBackColor = true;
             // 
-            // listView2
+            // listViewProductos
             // 
-            listView2.Columns.AddRange(new ColumnHeader[] { skuProductoCLM, nombreProductoCLM, cantidadProductoCLM });
-            listView2.Enabled = false;
-            listView2.HideSelection = true;
-            listView2.Location = new Point(12, 76);
-            listView2.Name = "listView2";
-            listView2.Size = new Size(777, 314);
-            listView2.TabIndex = 15;
-            listView2.UseCompatibleStateImageBehavior = false;
-            listView2.View = View.Details;
+            listViewProductos.Columns.AddRange(new ColumnHeader[] { skuProductoCLM, nombreProductoCLM, cantidadProductoCLM });
+            listViewProductos.Enabled = false;
+            listViewProductos.FullRowSelect = true;
+            listViewProductos.HideSelection = true;
+            listViewProductos.Location = new Point(12, 76);
+            listViewProductos.Name = "listViewProductos";
+            listViewProductos.Size = new Size(777, 314);
+            listViewProductos.TabIndex = 15;
+            listViewProductos.UseCompatibleStateImageBehavior = false;
+            listViewProductos.View = View.Details;
             // 
             // skuProductoCLM
             // 
@@ -92,15 +93,15 @@
             label2.TabIndex = 13;
             label2.Text = "Productos a empaquetar";
             // 
-            // label1
+            // labelNumeroOrden
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 14);
-            label1.Name = "label1";
-            label1.Size = new Size(54, 20);
-            label1.TabIndex = 12;
-            label1.Text = "Orden ";
-            label1.Click += label1_Click_1;
+            labelNumeroOrden.AutoSize = true;
+            labelNumeroOrden.Location = new Point(12, 14);
+            labelNumeroOrden.Name = "labelNumeroOrden";
+            labelNumeroOrden.Size = new Size(54, 20);
+            labelNumeroOrden.TabIndex = 12;
+            labelNumeroOrden.Text = "Orden ";
+            labelNumeroOrden.Click += label1_Click_1;
             // 
             // EmpaquetarProductosForm
             // 
@@ -109,9 +110,9 @@
             ClientSize = new Size(800, 450);
             Controls.Add(ordenEmpaquetadaBTN);
             Controls.Add(cancelarBTN);
-            Controls.Add(listView2);
+            Controls.Add(listViewProductos);
             Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(labelNumeroOrden);
             Name = "EmpaquetarProductosForm";
             Text = "EmpaquetarProductosForm";
             ResumeLayout(false);
@@ -122,11 +123,11 @@
 
         private Button ordenEmpaquetadaBTN;
         private Button cancelarBTN;
-        private ListView listView2;
+        private ListView listViewProductos;
         private ColumnHeader skuProductoCLM;
         private ColumnHeader nombreProductoCLM;
         private ColumnHeader cantidadProductoCLM;
         private Label label2;
-        private Label label1;
+        private Label labelNumeroOrden;
     }
 }

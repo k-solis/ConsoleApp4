@@ -12,11 +12,53 @@ namespace ConsoleApp4.EmpaquetarProductos
 {
     public partial class EmpaquetarProductosForm : Form
     {
+        private EmpaquetarProductosModelo modelo;
+        private OrdenPreparacion ordenActual;
+
+
         public EmpaquetarProductosForm()
         {
             InitializeComponent();
+
+            modelo = new EmpaquetarProductosModelo();
+
             ordenEmpaquetadaBTN.Click += ordenEmpaquetadaBTN_Click;
             cancelarBTN.Click += cancelarBTN_Click;
+
+            MostrarProximaOrden();
+
+        }
+
+        private void MostrarProximaOrden() //EXP
+        {
+            // Buscar próxima orden "En Preparacion"
+            ordenActual = modelo.OrdenesEnPreparacionDisponibles.FirstOrDefault(o => o.EstadoOrden == "En Preparacion");
+
+            if (ordenActual == null)
+            {
+                MessageBox.Show("No hay más órdenes pendientes.");
+                listViewProductos.Items.Clear();
+                labelNumeroOrden.Text = "Sin órdenes pendientes";
+                this.Close();
+                return;
+            }
+
+            labelNumeroOrden.Text = $"Orden #{ordenActual.NumeroOrden}";
+            CargarProductosEnListView(ordenActual.Productos);
+        }
+
+        private void CargarProductosEnListView(List<Producto> productos) //EXP
+        {
+            listViewProductos.Items.Clear();
+
+            foreach (var producto in productos)
+            {
+                var item = new ListViewItem(producto.SKUProducto.ToString());
+                item.SubItems.Add(producto.NombreProducto);
+                item.SubItems.Add(producto.CantidadProducto.ToString());
+
+                listViewProductos.Items.Add(item);
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -31,8 +73,13 @@ namespace ConsoleApp4.EmpaquetarProductos
 
         private void ordenEmpaquetadaBTN_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("La orden fue marcada como empaquetada.");
-            this.Close();
+            if (ordenActual != null)
+            {
+                ordenActual.EstadoOrden = "Preparada";
+                MessageBox.Show("La orden fue marcada como empaquetada.");
+                MostrarProximaOrden();
+                //this.Close();
+            }
         }
 
         private void cancelarBTN_Click(object sender, EventArgs e)
